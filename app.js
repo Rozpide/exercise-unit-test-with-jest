@@ -1,30 +1,42 @@
 // Declaramos una función con el nombre exacto "fromEuroToDollar"
+function sum(a,b){
+    return  a+b;
+}    
+
+
+const fromDollarToYen = function(valueInDollar) {
+    let oneEuroIs = {
+        "JPY": 156.5, // japan yen
+        "USD": 1.07, // us dollar
+        "GBP": 0.87, // british pound
+    }
+    let valueInEuro = valueInDollar / oneEuroIs.USD;
+    let valueYen = valueInEuro * oneEuroIs.JPY;
+    return valueYen;
+}
+
 const fromEuroToDollar = function(valueInEuro) {
+    let oneEuroIs = {
+        "JPY": 156.5, // japan yen
+        "USD": 1.07, // us dollar
+        "GBP": 0.87, // british pound
+    }
     // Convertimos el valor a dólares
     let valueInDollar = valueInEuro * 1.07;
     // Retornamos el valor en dólares
     return valueInDollar;
 }
-function sum (a,b){
-    return a+b
-}
-let oneEurols = {
-    "JPY": 156.5, // japan yen
-    "USD": 1.07, // us dollar
-    "GBP": 0.87, // british pound
-}
-const fromDollarToYen = function(valueInEuro) {
-    let valueInEuro = 0.9345
-    let valueYen = valueInEuro * 156.5
-    return valueYen
-}/*
-function fromEuroToDollar (euros){
-    let dollars = euros * oneEurols.USD;
-    return dollars
-}*/
-function fromYenToPound (yenes){
-    let euros = yenes / oneEurols.JPY;
-    let pounds = euros * oneEurols.GBP;
+
+
+function fromYenToPound (valueYen){
+    
+    let oneEuroIs = {
+        "JPY": 156.5, // japan yen
+        "USD": 1.07, // us dollar
+        "GBP": 0.87, // british pound
+    }
+    let valueInEuro = valueYen / oneEuroIs.JPY;
+    let pounds = valueInEuro * oneEuroIs.GBP;
     return pounds;
 }
 console.log(fromDollarToYen(100)); // Debería devolver el valor equivalente en yenes japoneses
